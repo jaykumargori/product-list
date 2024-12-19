@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import DiscountPicker from "./DiscountPicker";
 import { SelectedVariant, Variant } from "../types";
 import { useRef } from "react";
-import { useDrag, useDrop, DropTargetMonitor } from "react-dnd";
+import { useDrag, useDrop } from "react-dnd";
 
 interface VariantItemProps {
   variant: Variant;
@@ -27,7 +27,7 @@ const VariantItem: React.FC<VariantItemProps> = ({
     collect: (monitor) => ({
       handlerId: monitor.getHandlerId(),
     }),
-    hover(item: { index: number }, monitor: DropTargetMonitor) {
+    hover(item: { index: number }) {
       if (!ref.current) return;
       const dragIndex = item.index;
       const hoverIndex = index;

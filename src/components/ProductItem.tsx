@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from "react";
-import { useDrag, useDrop, DropTargetMonitor } from "react-dnd";
+import { useDrag, useDrop } from "react-dnd";
 import { useStore } from "../store/useStore";
 import type { SelectedProduct } from "../types";
 import { Button } from "../components/ui/button";
@@ -34,7 +34,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
         handlerId: monitor.getHandlerId(),
       };
     },
-    hover(item: { index: number }, monitor: DropTargetMonitor) {
+    hover(item: { index: number }) {
       if (!ref.current) return;
       const dragIndex = item.index;
       const hoverIndex = index;
